@@ -15,12 +15,14 @@
             alert(address + " not found");
           } else {
               if(marker) marker.hide();
-              map.setCenter(point, 13);
+              map.setCenter(point, 15);
               marker = new GMarker(point);
               map.addOverlay(marker);
-              marker.openInfoWindowHtml(address);
               $('#lon').val(point.x);
               $('#lat').val(point.y);
+              // geocoder.getLocations(point, function(response){
+              //     //marker.openInfoWindowHtml(response.Placemark[0].address);
+              // });
           }
         }
       );
