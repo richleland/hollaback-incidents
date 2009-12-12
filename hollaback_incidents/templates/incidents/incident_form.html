@@ -36,24 +36,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="info">
 <h2>Submit Your Story to HollaBack DC</h2>
-<div>Please provide the following information on your experience. Don't worry, we won't publish any personal information!</div>
-</div>
+<p>Please provide the following information on your experience. Don't worry, we won't publish any personal information!</p>
 
-<ul>
-
-
-
-<li id="fo1li1" class="    ">
-<label class="desc" id="title1" for="Field1">
-Please Specify the Intersection or Area Where the Harassment Occurred
-<span id="req_1" class="req">*</span>
-</label>
-<div>
-{{ form.location }}
-</div>
-</li>
+<p>
+{{ form.place.errors }}
+<input type="hidden" name="latitude" id="lat"/>
+<input type="hidden" name="longitude" id="lon"/>
+</p>
 
 
 <li id="fo1li5" class="    ">
