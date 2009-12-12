@@ -39,94 +39,36 @@
 <h2>Submit Your Story to HollaBack DC</h2>
 <p>Please provide the following information on your experience. Don't worry, we won't publish any personal information!</p>
 
+<form action="{% url incident_form %}" method="POST">
 <p>
-{{ form.place.errors }}
+<label for="id_place">{{ form.place.help_text }}</label>
+{{ form.place }}
 <input type="hidden" name="latitude" id="lat"/>
 <input type="hidden" name="longitude" id="lon"/>
 </p>
 
 
-<li id="fo1li5" class="    ">
-<label class="desc" id="title5" for="Field5">
-Where did the harassment occur?
-<span id="req_5" class="req">*</span>
-</label>
-<div class="col">
-<span>
-<input id="Field5" name="Field5" class="field checkbox" value="On the Street" tabindex="2" type="checkbox">
-<label class="choice" for="Field5">On the Street</label>
-</span>
-<span>
-<input id="Field6" name="Field6" class="field checkbox" value="At a Bar" tabindex="3" type="checkbox">
-<label class="choice" for="Field6">At a Bar</label>
-</span>
-<span>
-<input id="Field7" name="Field7" class="field checkbox" value="On the Metro/In a Metro Station" tabindex="4" type="checkbox">
-<label class="choice" for="Field7">On the Metro/In a Metro Station</label>
-</span>
-<span>
-<input id="Field8" name="Field8" class="field checkbox" value="On a Bus/At a Bus Stop" tabindex="5" type="checkbox">
-<label class="choice" for="Field8">On a Bus/At a Bus Stop</label>
-</span>
-<span>
-<input id="Field9" name="Field9" class="field checkbox" value="Other*" tabindex="6" type="checkbox">
-<label class="choice" for="Field9">Other*</label>
-</span>
-</div>
-</li>
+<p>
+<label for="id_location_type">{{ form.location_type.help_text }}</label>
+{{ form.location_type }}
+OR
+Other: {{ form.other_type }}
+</p>
 
 
-<li id="fo1li105" class="    ">
-<label class="desc" id="title105" for="Field105">
-*If you selected "Other" above, please specify here:
-</label>
-<div>
-<input id="Field105" name="Field105" class="field text large" value="" maxlength="255" tabindex="7" type="text">
-</div>
-</li>
+<p>
+<label for="id_story">{{ form.story.help_text }}</label>
+{{ form.story }}
+</p>
 
 
-<li id="fo1li2" class="    ">
-
-
-<label class="desc" id="title2" for="Field2">
-Please Tell Your Story
-<span id="req_2" class="req">*</span>
-</label>
-
-<div>
-<textarea id="Field2" name="Field2" class="field textarea large" rows="10" cols="50" tabindex="8"></textarea>
-
-</div>
+<p>
+<label for="id_signature">{{ form.signature.help_text }}</label>
+{{ form.signature }}
+</p>
 
 
 
-</li>
-
-
-<li id="fo1li3" class="    ">
-<label class="desc" id="title3" for="Field3">
-Sign Your Name or Initials (if you want to)
-</label>
-<div>
-<input id="Field3" name="Field3" class="field text medium" value="" maxlength="255" tabindex="9" type="text">
-</div>
-</li>
-
-
-
-
-<li class="buttons ">
-<input name="currentPage" id="currentPage" value="7HAyuFElTFkw1b0NuZ41yOHdlwuBe6EwuslasheRZSoZc1Ja5wuslashpI=" type="hidden">
-<input id="saveForm" name="saveForm" class="btTxt submit" value="Submit Your Story" type="submit">
-
-
-</li>
-
-<li style="display: none;">
-<label for="comment">Do Not Fill This Out</label>
-<textarea name="comment" id="comment" rows="1" cols="1"></textarea>
-<input id="idstamp" name="idstamp" value="QVdbHQhgKdRXa8sinFbFuum31zeUzx5hcckjSPPexVE=" type="hidden">
-</li>
-</ul>
+<input type="submit" value="Submit Your Story"/>
+</form>
 {% endblock %}
