@@ -20,9 +20,6 @@
               map.addOverlay(marker);
               $('#lon').val(point.x);
               $('#lat').val(point.y);
-              // geocoder.getLocations(point, function(response){
-              //     //marker.openInfoWindowHtml(response.Placemark[0].address);
-              // });
           }
         }
       );
@@ -41,6 +38,7 @@
             placeInput.bind('blur', function(e){
                 showAddress(placeInput.val());
             });
+            if(placeInput.val().length > 0) showAddress(placeInput.val());
             
             $('#id_checkit').bind('click', function(e){
                 showAddress(placeInput.val());
