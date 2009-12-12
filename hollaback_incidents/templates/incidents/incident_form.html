@@ -56,6 +56,7 @@
 <p>Please provide the following information on your experience. Don't worry, we won't publish any personal information!</p>
 
 <form action="{% url incident_form %}" method="POST">
+    {{ form.errors }}
     <div class="span-22 last">
         <div class="span-12">
             <p>

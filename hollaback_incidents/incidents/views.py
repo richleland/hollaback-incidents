@@ -7,6 +7,8 @@ def incident_form(request):
     """Form for users to submit an incident"""
     if request.method == 'POST':
        f = IncidentForm(request.POST)
+       if f.is_valid():
+           f.save()
     else:
        f = IncidentForm()
     return render_to_response('incidents/incident_form.html', {
