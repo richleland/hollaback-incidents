@@ -1,0 +1,78 @@
+body {
+	background-color: #e6e6e6;
+	padding: 20px;
+}
+
+#wrapper {
+	background-color: #fff;
+}
+
+table {
+    margin-bottom: 2.5em;
+}
+
+td {
+	border-bottom: 1px solid #cccccc;
+}
+
+tr.lightborder td,
+tr.lightborder th {
+	border-bottom: 1px solid #e6e6e6;
+	vertical-align: top;
+}
+
+tr.subcriteria td {
+	font-size: 0.9em;
+	color: #666666;
+}
+
+tr.noborder td {
+	border-bottom: none;
+}
+
+tr.total td {
+	border-bottom: none;
+	border-top: 2px solid #cccccc;
+}
+
+.right {
+    text-align: right;
+}
+
+#actions {
+	overflow: hidden;
+}
+
+caption {
+	font-size: 1.2em;
+}
+
+#downloads {
+	overflow: hidden;
+}
+
+input.disabled {
+	border: none;
+}
+
+.ania {
+    background-color: #FFFF00;
+}
+
+.yes {
+    display: block;
+    background: transparent url(blueprint/plugins/buttons/icons/tick.png) no-repeat;
+    text-indent: -9999px;
+}
+
+.no {
+    display: block;
+    background: transparent url(blueprint/plugins/buttons/icons/cross.png) no-repeat;
+    text-indent: -9999px;
+}
+
+.quiet {
+    font-size: 0.9em;
+    color: #999;
+    font-weight: normal;
+}
