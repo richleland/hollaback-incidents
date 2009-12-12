@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAtGw1MDAVWMO6QjAEb2-w_hQCULP4XOMyhPd8d_NrQQEO8sT8XBR4nl1tfW8GUiQ2uIWU8ASwZR6mXA" type="text/javascript"></script>
+<script type="text/javascript">
+
+    var map = null;
+    var geocoder = null;        
+        
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        map = new GMap2(document.getElementById("map_canvas"));
+        map.setCenter(new GLatLng(37.4419, -122.1419), 13);
+        map.setUIToDefault();
+        geocoder = new GClientGeocoder();
+      }
+    }
+    
+
+    function showAddress(address) {
+      geocoder.getLatLng(
+        address,
+        function(point) {
+          if (!point) {
+            alert(address + " not found");
+          } else {
+            map.setCenter(point, 13);
+            var marker = new GMarker(point);
+            map.addOverlay(marker);
+            marker.openInfoWindowHtml(address);
+          }
+        }
+      );
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="info">
+<h2>Submit Your Story to HollaBack DC</h2>
+<div>Please provide the following information on your experience. Don't worry, we won't publish any personal information!</div>
+</div>
+
+<ul>
+
+
+
+<li id="fo1li1" class="    ">
+<label class="desc" id="title1" for="Field1">
+Please Specify the Intersection or Area Where the Harassment Occurred
+<span id="req_1" class="req">*</span>
+</label>
+<div>
+{{ form.location }}
+</div>
+</li>
+
+
+<li id="fo1li5" class="    ">
+<label class="desc" id="title5" for="Field5">
+Where did the harassment occur?
+<span id="req_5" class="req">*</span>
+</label>
+<div class="col">
+<span>
+<input id="Field5" name="Field5" class="field checkbox" value="On the Street" tabindex="2" type="checkbox">
+<label class="choice" for="Field5">On the Street</label>
+</span>
+<span>
+<input id="Field6" name="Field6" class="field checkbox" value="At a Bar" tabindex="3" type="checkbox">
+<label class="choice" for="Field6">At a Bar</label>
+</span>
+<span>
+<input id="Field7" name="Field7" class="field checkbox" value="On the Metro/In a Metro Station" tabindex="4" type="checkbox">
+<label class="choice" for="Field7">On the Metro/In a Metro Station</label>
+</span>
+<span>
+<input id="Field8" name="Field8" class="field checkbox" value="On a Bus/At a Bus Stop" tabindex="5" type="checkbox">
+<label class="choice" for="Field8">On a Bus/At a Bus Stop</label>
+</span>
+<span>
+<input id="Field9" name="Field9" class="field checkbox" value="Other*" tabindex="6" type="checkbox">
+<label class="choice" for="Field9">Other*</label>
+</span>
+</div>
+</li>
+
+
+<li id="fo1li105" class="    ">
+<label class="desc" id="title105" for="Field105">
+*If you selected "Other" above, please specify here:
+</label>
+<div>
+<input id="Field105" name="Field105" class="field text large" value="" maxlength="255" tabindex="7" type="text">
+</div>
+</li>
+
+
+<li id="fo1li2" class="    ">
+
+
+<label class="desc" id="title2" for="Field2">
+Please Tell Your Story
+<span id="req_2" class="req">*</span>
+</label>
+
+<div>
+<textarea id="Field2" name="Field2" class="field textarea large" rows="10" cols="50" tabindex="8"></textarea>
+
+</div>
+
+
+
+</li>
+
+
+<li id="fo1li3" class="    ">
+<label class="desc" id="title3" for="Field3">
+Sign Your Name or Initials (if you want to)
+</label>
+<div>
+<input id="Field3" name="Field3" class="field text medium" value="" maxlength="255" tabindex="9" type="text">
+</div>
+</li>
+
+
+
+
+<li class="buttons ">
+<input name="currentPage" id="currentPage" value="7HAyuFElTFkw1b0NuZ41yOHdlwuBe6EwuslasheRZSoZc1Ja5wuslashpI=" type="hidden">
+<input id="saveForm" name="saveForm" class="btTxt submit" value="Submit Your Story" type="submit">
+
+
+</li>
+
+<li style="display: none;">
+<label for="comment">Do Not Fill This Out</label>
+<textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+<input id="idstamp" name="idstamp" value="QVdbHQhgKdRXa8sinFbFuum31zeUzx5hcckjSPPexVE=" type="hidden">
+</li>
+</ul>
+{% endblock %}
