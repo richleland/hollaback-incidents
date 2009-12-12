@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('incidents.views',
-    (r'^report/$', 'incident_form'),
+    url(r'^report/$', 'incident_form', name='incident_form'),
 )
