@@ -11,8 +11,8 @@ class LocationType(models.Model):
 class Incident(models.Model):
     """Represents a harassment incident."""
     visible = models.BooleanField(default=False)
-    place = models.CharField(max_length=255)
-    location_type = models.ManyToManyField(LocationType)
+    place = models.CharField(max_length=255,help_text='Please Specify the Intersection or Area Where the Harassment Occurred')
+    location_type = models.ForeignKey(LocationType,help_text='Where did the harassment occur?')
     other_type = models.CharField(max_length=255, blank=True)
     title = models.CharField(max_length=255)
     story = models.TextField()
