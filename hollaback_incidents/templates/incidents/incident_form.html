@@ -7,6 +7,14 @@
     var geocoder = null;
     var marker = null;
     
+    function setHiddenValues(point) {
+        $('#lon').val(point.x);
+        $('#lat').val(point.y);
+        geocoder.getLocations(point, function(response){
+            $('#id_place').val(response.Placemark[0].address);
+        });
+    }
+    
     function showAddress(address) {
         geocoder.getLatLng(
             address,
@@ -19,14 +27,11 @@
                     marker = new GMarker(point, { draggable: true });
                     
                     GEvent.addListener(marker, "dragend", function(){
-                        var newPoint = marker.getLatLng()
-                        $('#lon').val(newPoint.x);
-                        $('#lat').val(newPoint.y);
+                        setHiddenValues(marker.getLatLng());
                     });
                     
                     map.addOverlay(marker);
-                    $('#lon').val(point.x);
-                    $('#lat').val(point.y);
+                    setHiddenValues(point);
                 }
             }
         );
