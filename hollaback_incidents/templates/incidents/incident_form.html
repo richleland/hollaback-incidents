@@ -5,24 +5,31 @@
 <script type="text/javascript">
     var map = null;
     var geocoder = null;
-    var marker = null;     
+    var marker = null;
     
     function showAddress(address) {
-      geocoder.getLatLng(
-        address,
-        function(point) {
-          if (!point) {
-            alert(address + " not found");
-          } else {
-              if(marker) marker.hide();
-              map.setCenter(point, 15);
-              marker = new GMarker(point);
-              map.addOverlay(marker);
-              $('#lon').val(point.x);
-              $('#lat').val(point.y);
-          }
-        }
-      );
+        geocoder.getLatLng(
+            address,
+            function(point) {
+                if (!point) {
+                    alert(address + " not found");
+                } else {
+                    if(marker) marker.hide();
+                    map.setCenter(point, 15);
+                    marker = new GMarker(point, { draggable: true });
+                    
+                    GEvent.addListener(marker, "dragend", function(){
+                        var newPoint = marker.getLatLng()
+                        $('#lon').val(newPoint.x);
+                        $('#lat').val(newPoint.y);
+                    });
+                    
+                    map.addOverlay(marker);
+                    $('#lon').val(point.x);
+                    $('#lat').val(point.y);
+                }
+            }
+        );
     }
     
     $(function(){
